@@ -96,3 +96,30 @@ function notIIFE() {
 
 notIIFE();
 console.log(bb);
+
+global.x = 5;
+console.log(`X: ${x}`);
+
+function foo(x) {
+    var y = global.x * 2;
+
+    console.log(`GLOBAL.X: ${global.x}`);
+
+    function bar(z) {
+        console.log('BAR', 'X', x, 'Y', y, 'Z', z);
+    }
+
+    bar(y * 3);
+}
+
+foo(2);
+
+function boo(str, a) {
+    // 'use strict'; // in strict mode eval won't affect the enclosing scope
+    eval(str); // cheating!
+    console.log('A', a, 'BBB', bbb);
+}
+
+var bbb = 2;
+console.log(`BBB: ${bbb}`);
+boo("var bbb = 3;", 1);
