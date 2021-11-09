@@ -29,3 +29,4 @@ while (true) {
     }
     // console.log('I\'m infinite'); // if no else with break
 }
+
